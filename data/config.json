@@ -1,0 +1,22 @@
+{
+  "default_profile": "safe",
+  "llm_host": "localhost",
+  "llm_port": 6000,
+  "llm_timeout": 30,
+  "theme": "dark",
+  "language": "ar",
+  "font_size": 12,
+  "voice_enabled": true,
+  "voice_language": "ar-SA",
+  "notifications_enabled": true,
+  "sound_enabled": true,
+  "confirm_high_risk": true,
+  "dry_run_by_default": true,
+  "telegram_enabled": false,
+  "telegram_token": "",
+  "telegram_allowed_users": [],
+  "hotkey_voice": "ctrl+shift+v",
+  "hotkey_focus": "ctrl+shift+j",
+  "max_watches": 10,
+  "max_log_entries": 100
+}

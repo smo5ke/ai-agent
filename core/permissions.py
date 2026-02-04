@@ -8,9 +8,13 @@ class SecurityLevel(Enum):
 # خريطة الصلاحيات
 ACTION_POLICY = {
     "open": SecurityLevel.SAFE,
-    "clean": SecurityLevel.CRITICAL, # التنظيف ينقل ملفات، لازم إذن
+    "open_file": SecurityLevel.SAFE,
+    "clean": SecurityLevel.CRITICAL,
     "watch": SecurityLevel.WARNING,
+    "stop_watch": SecurityLevel.SAFE,
     "macro": SecurityLevel.SAFE,
+    "schedule": SecurityLevel.SAFE,
+    "reminder": SecurityLevel.SAFE,
     "hello": SecurityLevel.SAFE,
     "chat": SecurityLevel.SAFE,
 }

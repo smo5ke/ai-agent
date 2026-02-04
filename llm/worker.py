@@ -1,43 +1,88 @@
+"""
+🧠 Brain - الدماغ
+==================
+واجهة موحدة للتفكير. يستخدم IPC للتواصل مع LLM Worker المستقل.
+
+التغيير الرئيسي:
+- قبل: الموديل يعمل في نفس الـ Process
+- الآن: الموديل في Worker منفصل عبر TCP Socket
+"""
+
 import json
-from llama_cpp import Llama
 from core.schemas import Command
-from llm.prompts import SYSTEM_PROMPT # استيراد البرومبت من الملف الخارجي
+from llm import ipc
+
 
 class Brain:
-    def __init__(self, model_path):
+    def __init__(self, model_path=None):
+        """
+        Args:
+            model_path: لم يعد مستخدماً (للتوافق فقط)
+                       الموديل يُحمّل في worker_process.py
+        """
         self.model_path = model_path
-        self.llm = None
+        self._worker_available = False
     
-    def load(self):
-        print(f"🧠 Loading Model from: {self.model_path}...")
-        try:
-            # n_ctx=4096 ليعطيه ذاكرة جيدة للمحادثة
-            self.llm = Llama(model_path=self.model_path, n_ctx=4096, verbose=False, n_gpu_layers=0)
+    def load(self) -> bool:
+        """
+        فحص توفر الـ Worker بدلاً من تحميل الموديل.
+        """
+        print("🧠 Checking LLM Worker connection...")
+        
+        if ipc.is_worker_available():
+            print("✅ LLM Worker is connected!")
+            self._worker_available = True
             return True
-        except Exception as e:
-            print(f"❌ Brain Load Error: {e}")
+        else:
+            print("⚠️ LLM Worker not available!")
+            print("💡 Start it with: python llm/worker_process.py")
+            self._worker_available = False
             return False
-
-    def think(self, user_input, app_context) -> Command:
-        if not self.llm:
-            return Command(intent="unknown")
-
-        # دمج سياق التطبيقات مع البرومبت الأساسي
-        full_prompt = SYSTEM_PROMPT.format(known_apps=app_context, user_input=user_input)
-
-        try:
-            output = self.llm(full_prompt, max_tokens=250, temperature=0.1, stop=["<|eot_id|>"])
-            text = output['choices'][0]['text'].strip()
+    
+    def think(self, user_input: str, app_context: str):
+        """
+        إرسال الطلب للـ Worker عبر IPC.
+        
+        Args:
+            user_input: ما كتبه المستخدم
+            app_context: قائمة التطبيقات المتاحة
             
-            # استخراج JSON
-            if "{" in text:
-                json_str = text[text.find('{'):text.rfind('}')+1]
-                data = json.loads(json_str)
-                # التحقق والتنظيف عبر Pydantic
+        Returns:
+            Command أو List[dict]: الأمر المحلل أو قائمة أوامر
+        """
+        
+        # فحص سريع للاتصال
+        if not ipc.is_worker_available():
+            print("❌ LLM Worker disconnected!")
+            return Command(intent="unknown")
+        
+        # إرسال للـ Worker
+        result = ipc.think(
+            prompt=user_input,
+            app_context=app_context,
+            timeout=30
+        )
+        
+        # معالجة النتيجة
+        if result.get("success"):
+            try:
+                data = result.get("response")
+                
+                # إذا كانت قائمة أوامر
+                if isinstance(data, list):
+                    return data  # إرجاع القائمة كما هي
+                
+                # إذا كان كائن واحد
                 return Command(**data)
-            else:
+                
+            except Exception as e:
+                print(f"⚠️ Command parsing error: {e}")
                 return Command(intent="unknown")
-            
-        except Exception as e:
-            print(f"⚠️ Thinking Error: {e}")
+        else:
+            error = result.get("error", "Unknown error")
+            print(f"⚠️ LLM Error: {error}")
             return Command(intent="unknown")
+    
+    def is_ready(self) -> bool:
+        """فحص جاهزية الـ Worker"""
+        return ipc.is_worker_available()

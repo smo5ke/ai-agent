@@ -65,19 +65,6 @@ class Executor:
             webbrowser.open(f"https://{real_target}" if "http" not in real_target else real_target)
             return f"تم فتح الموقع: {real_target}"
 
-        # 2. حالة خاصة لتيليجرام
-        if "telegram" in real_target:
-            tg_path = self.find_telegram()
-            if tg_path:
-                subprocess.Popen(tg_path)
-                return "تم تشغيل تيليجرام"
-            else:
-                # محاولة فتحه كـ تطبيق متجر إذا لم يوجد الملف
-                try:
-                    subprocess.run('explorer.exe shell:AppsFolder\\TelegramMessengerLLP.TelegramDesktop_t4vj0pshhgkwm!Telegram.TelegramDesktop.Store', shell=True)
-                    return "تم تشغيل تيليجرام (نسخة المتجر)"
-                except: pass
-
         # 3. تطبيق عادي
         try:
             subprocess.Popen(real_target)
