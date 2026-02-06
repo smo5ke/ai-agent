@@ -1,0 +1,200 @@
+{
+  "preferences": {
+    "language": "arabic"
+  },
+  "facts": [],
+  "history": [
+    {
+      "time": "2026-02-05T01:26:24.561571",
+      "action": "process_user",
+      "details": {
+        "input": "انشء مجلد داخل سطح المكتب",
+        "success": true
+      }
+    },
+    {
+      "time": "2026-02-05T01:44:43.159442",
+      "action": "process_user",
+      "details": {
+        "input": "انشء ملف اسمه ت على سطح المكتب",
+        "success": true
+      }
+    },
+    {
+      "time": "2026-02-05T01:50:30.751803",
+      "action": "process_user",
+      "details": {
+        "input": "انشئ مجلد اسمه جديد على سطح المكتب",
+        "success": true
+      }
+    },
+    {
+      "time": "2026-02-05T01:59:31.785200",
+      "action": "process_user",
+      "details": {
+        "input": "انشء مجلد اسمه جديد في التنزيلات",
+        "success": true
+      }
+    },
+    {
+      "time": "2026-02-05T03:05:20.860999",
+      "action": "process_user",
+      "details": {
+        "input": "انشئ مجلد اسمه فارغ على سطح المكتب",
+        "success": true
+      }
+    },
+    {
+      "time": "2026-02-05T16:01:38.167048",
+      "action": "process_user",
+      "details": {
+        "input": "على سطح المكتب انشء مجلد اسمه تجربة وداخله انشء مل",
+        "success": false
+      }
+    },
+    {
+      "time": "2026-02-05T16:05:11.826407",
+      "action": "process_user",
+      "details": {
+        "input": "على سطح المكتب انشء مجلد اسمه تجربة وداخله انشء مل",
+        "success": false
+      }
+    },
+    {
+      "time": "2026-02-05T16:05:43.710515",
+      "action": "process_user",
+      "details": {
+        "input": "انشء مجلد اسمه تجربة على سطح المكتب",
+        "success": false
+      }
+    },
+    {
+      "time": "2026-02-05T16:08:23.845182",
+      "action": "process_user",
+      "details": {
+        "input": "على سطح المكتب انشء مجلد اسمه تجربة",
+        "success": true
+      }
+    },
+    {
+      "time": "2026-02-05T16:08:56.886502",
+      "action": "process_user",
+      "details": {
+        "input": "على سطح المكتب انشء مجلد اسمه تجربة وداخله انشء مل",
+        "success": true
+      }
+    },
+    {
+      "time": "2026-02-05T16:09:32.780299",
+      "action": "process_user",
+      "details": {
+        "input": "داخل ملف a.txt اكتب كلمة مرحبا",
+        "success": true
+      }
+    },
+    {
+      "time": "2026-02-05T16:11:29.517341",
+      "action": "process_user",
+      "details": {
+        "input": "اكتب كلمة مرحبا داخل ملف a.txt هو داخل مجلد تجربة ",
+        "success": true
+      }
+    },
+    {
+      "time": "2026-02-05T17:45:07.118109",
+      "action": "process_user",
+      "details": {
+        "input": "على سطح المكتب انشء مجلد اسمه تجربة وداخله انشئ مل",
+        "success": true
+      }
+    },
+    {
+      "time": "2026-02-05T17:48:29.062380",
+      "action": "process_user",
+      "details": {
+        "input": "على سطح المكتب داخل مجلد تجربة ملف اسمه a.txt اكتب",
+        "success": true
+      }
+    },
+    {
+      "time": "2026-02-05T17:50:45.024358",
+      "action": "process_user",
+      "details": {
+        "input": "داخل مجلد تجربة على سطح المكتب يوجد ملف اسمه a.txt",
+        "success": true
+      }
+    },
+    {
+      "time": "2026-02-05T17:54:23.610925",
+      "action": "process_user",
+      "details": {
+        "input": "انشئ مجلد تجربة في التنزيلات",
+        "success": false
+      }
+    },
+    {
+      "time": "2026-02-05T17:55:09.925621",
+      "action": "process_user",
+      "details": {
+        "input": "انشئ مجلد اسمه تجربة في مجلد التنزيلات",
+        "success": true
+      }
+    },
+    {
+      "time": "2026-02-05T23:59:17.900403",
+      "action": "process_user",
+      "details": {
+        "input": "انشئ ملف اسمه a.txt على سطح المكتب",
+        "success": true
+      }
+    },
+    {
+      "time": "2026-02-06T00:01:31.221405",
+      "action": "process_user",
+      "details": {
+        "input": "اكتب داخله كلمة مرحبا",
+        "success": true
+      }
+    },
+    {
+      "time": "2026-02-06T00:02:45.287716",
+      "action": "process_user",
+      "details": {
+        "input": "اكتب كلمة مرحبا داخل ملف a.txt على سطح المكتب",
+        "success": true
+      }
+    },
+    {
+      "time": "2026-02-06T00:13:28.771400",
+      "action": "process_user",
+      "details": {
+        "input": "احذف ملف a.txt الموجود على سطح المكتب",
+        "success": true
+      }
+    },
+    {
+      "time": "2026-02-06T00:42:02.534789",
+      "action": "process_user",
+      "details": {
+        "input": "كيف حالك اليو",
+        "success": true
+      }
+    },
+    {
+      "time": "2026-02-06T02:54:32.830914",
+      "action": "process_user",
+      "details": {
+        "input": "على سطح المكتب انشئ مجلد اسمه واو",
+        "success": true
+      }
+    },
+    {
+      "time": "2026-02-06T02:56:18.401474",
+      "action": "process_user",
+      "details": {
+        "input": "انشئ داخله ملف a.txt",
+        "success": true
+      }
+    }
+  ]
+}

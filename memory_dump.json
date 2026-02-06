@@ -1,0 +1,17 @@
+{
+  "base_path": "C:\\Users\\abdok",
+  "cwd": "C:\\Users\\abdok\\OneDrive\\سطح المكتب\\واو",
+  "history": [
+    "cwd -> C:\\Users\\abdok\\OneDrive\\سطح المكتب\\واو"
+  ],
+  "events": [
+    {
+      "time": "2026-02-06T02:54:32.829530",
+      "message": "Executed: create_folder"
+    },
+    {
+      "time": "2026-02-06T02:56:18.401474",
+      "message": "Executed: create_file"
+    }
+  ]
+}
